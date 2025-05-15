@@ -3,4 +3,7 @@ __pycache__/
 *.pyc
 .env
 *.db
+*.sqlite3
 *.sqlite
+knowledge-base
+*.bin
