@@ -1,0 +1,21 @@
+services:
+  fastapi:
+    build: .
+    env_file:
+      - .env
+    command: uvicorn main:app --host 0.0.0.0 --port 8000
+    environment:
+      - BASE_URL=${BASE_URL}
+      - DEFAULT_MODE=${DEFAULT_MODE}
+
+  gradio:
+    build: .
+    env_file:
+      - .env
+    command: python gradio_app.py
+    depends_on:
+      - fastapi
+    ports:
+      - "7860:7860"
+    environment:
+      - API_URL=${API_URL}

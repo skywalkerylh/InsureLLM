@@ -6,4 +6,5 @@ __pycache__/
 *.sqlite3
 *.sqlite
 knowledge-base
+vector_db
 *.bin

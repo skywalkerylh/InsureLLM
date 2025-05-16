@@ -9,3 +9,4 @@ class Config:
     DEFAULT_MODEL = os.getenv("DEFAULT_MODEL")
     DB_NAME = os.getenv("DB_NAME")
     EMBEDDING_MODEL = os.getenv("EMBEDDING_MODEL")
+    API_URL = os.getenv("API_URL")

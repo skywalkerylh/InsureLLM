@@ -1,7 +1,7 @@
 import gradio as gr
 import requests
 import os
-from dotenv import load_dotenv
+from app.config import Config
 from abc import ABC, abstractmethod
 
 
@@ -30,11 +30,9 @@ def create_gradio_interface(chat_client: ChatClient):
 
 def main():
 
-    load_dotenv()
-    api_url = os.getenv("API_URL")
-    client = FastAPIChatClient(api_url=api_url)
+    client = FastAPIChatClient(api_url=Config.API_URL)
     ui = create_gradio_interface(client)
-    ui.launch()
+    ui.launch(server_name="0.0.0.0", server_port=7860)
 
 if __name__ == "__main__":
     main()

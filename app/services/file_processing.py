@@ -51,12 +51,16 @@ class DocumentProcessor:
         # create vectordb
         if os.path.exists(Config.DB_NAME):
             Chroma(
-                persist_directory=Config.DB_NAME, embedding_function=embeddings
+                persist_directory=Config.DB_NAME, 
+                embedding_function=embeddings
             ).delete_collection()
 
         # Convert doc text into vectors
         vectorstore = Chroma.from_documents(
-            documents=chunks, embedding=embeddings, persist_directory=Config.DB_NAME
+            documents=chunks, 
+            embedding=embeddings, 
+            persist_directory=Config.DB_NAME,
+            collection_metadata={"_type": "local"}
         )
         print(f"Vectorstore created with {vectorstore._collection.count()} documents")
 
