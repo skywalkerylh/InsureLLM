@@ -20,7 +20,7 @@ class ChatService:
     def get_llm(self):
         
         return ChatOpenAI(
-            temperature=0.7,
+            temperature=0,
             model_name=Config.DEFAULT_MODEL,
             base_url=Config.BASE_URL,
             api_key=Config.API_KEY,
